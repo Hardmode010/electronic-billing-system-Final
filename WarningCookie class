@@ -1,0 +1,11 @@
+package Omar;
+
+import javax.swing.JOptionPane; /// display messages to the user
+
+public class WarningCookie {
+public static void Warning(String[] args) { /// naming the method
+	System.out.println();
+	JOptionPane.showMessageDialog(null,"please be aware that all information stored within this application is safely stored and monitored"); 
+	/// displaying the message on the screen as a pop up
+}
+}
