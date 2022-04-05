@@ -1,0 +1,15 @@
+package Omar;
+// CREATING NEW CLASS TO USE A ENCAPSULATED METHOD FOR OOP AND FUTURE UPDATES 
+public class Encapsulation {
+	
+	private String Emergency; // CREATING PRIVTE STRING FOR THAT CLASS ONLY
+	
+	public void setEmergency(String newEmergency) { // SETTING THE SET EMERGENCY METHOD FOR USE IN MAIN 
+		this.Emergency = newEmergency;  ///RECIVING NEW INPUT FOR EMERGENCY WILL BE USED IN MAIN CLASS
+		/// using this keyword to specify the string we are using which is Emergency used for clarity.
+	}   /// this keyword used here because we don't have static method and by using this would be a perfect set.
+	public String getEmergency() { /// MAKING THE METHOD OUTPUT VISABLE FOR OTHER CLASSES
+		return Emergency;
+	}
+}
+/// THIS INFORMATION HAVE BEEN CLAMIED FROM ALEX LEE A JAVA INSTRUCTOR 
