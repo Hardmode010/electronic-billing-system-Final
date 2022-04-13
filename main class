@@ -6,169 +6,207 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Scanner;  // Needed for the user input ///Omar wrote that line
 
+
+
+
 public class billsystem { /// Identifing the class name and the file name. ///Omar wrote that line
-	public static void Recursion(String[] args) {
-		 
-	} /// setting Recursion function to print Welcoming message///
-		public static void firstMessage(int x) {
-			if(x==0) /// setting a condition for future use if needed///
-				{
-				System.out.println("Welcome to Electronic billing system here you can eneter and review all your bill in one place!");
-			} else {
-				System.out.println("null");
-				x++; /// controlling Recursion infinite loop by printing specific number of times it is changeable!!!
-				firstMessage(x);
-			}	
-		}
-	public static void main(String[] args) { ///this line is important to Identify what are we going to use in our code for example Strings.
-		Scanner keyboard = new Scanner(System.in);  // Create a Scanner to read input///Omar wrote that line
-		String Name, Phone, Address, Email, medicalIssue;   ///To hold a name. Define Variables ///Omar wrote that line
-		int daysStayed; /// declaring thats an Integer ///Omar wrote that line
-		double doctorFee, roomCharge, medPrice, totalFee; /// declare that these variables are double ///Omar wrote that line
-		final double cleaningFee; /// to Identify the constant you need to use the keyword final "Vertex academy.com" ///Omar wrote that line
-		cleaningFee = 35; ///Omar wrote that line
-		WarningCookie.Warning(args); /// calling the method from a different class
-		firstMessage(0); /// calling Recursion method in the main method///
-		
-	    Encapsulation E = new Encapsulation(); /// RECIVING NEW VALUE TO ENCAPSLATION STRING
-	    E.setEmergency ("IF YOU ARE STILL RECIVING TREATMENT PLEASE CALL YOUR DOCTOR BEFORE YOU FILL THIS FORM OR CALL THE HOSPITAL HOTLINE!!\n");
-	    /// GIVING INPUT TO THE ENCAPSULATED FUNCTION FROM A DIFFERENT CLASS
-	    System.out.println(E.getEmergency()); //CALLING FUNCTION AND MAKE IT EASIER TO CALL METHODS RATHER THAN REPATED CODE
-	 // print a welcome message
-	    System.out.println("*Please Enter the following information carfully*\n"); ///Omar wrote that line
-	    
-	     
-	    System.out.printf("Enter %s%n","First Name :"); /// this to show on the screen a space for user to input name ///Omar wrote that line 
-	    ///the %s%n is used to interpret as a string
-        Name = keyboard.nextLine();  // Read user input ///Omar wrote that line
-        
-	    System.out.println("Enter current address :"); /// this to show on the screen a space for user to input name ///Omar wrote that line
-	    Address = keyboard.nextLine(); // Read user input ///Omar wrote that line
-	     
-	    System.out.println("please enter phone Number : "); ///this to show on the screen a space for user to input phone number
-	    Phone= keyboard.nextLine(); // Read user input ///Omar wrote that line
-	    
-	    System.out.println("please enter your primary Email address :"); ///this to show on the screen a space for user to input Email Address
-	    Email = keyboard.nextLine(); // read user input ///Omar wrote that line
-	    
-	    int doctor;    // to hold day value
 
-	      // Create a Scanner object for keyboard input.
-	      Scanner console = new Scanner(System.in);
+    public static void Recursion(String[] args) {
 
-	      // Get the doctor type.
-	      System.out.print("Please enter the number corresponding with the doctor you need:\n ");
-	      System.out.print("1: Urologist\n 2: Chiropractic\n 3: optometrist\n 4: Orthopedic\n Enter here: ");
-	      doctor = console.nextInt();
+    } /// setting Recursion function to print Welcoming message///
 
-	      // Print out the department for the bill
-	      switch (doctor)
-	      {
-	      case 1 :
-	         System.out.println("You selected the urology department \n");
+    public static void firstMessage(int x) {
+        if (x == 0) /// setting a condition for future use if needed///
+        {
+            System.out.println("Welcome to Electronic billing system here you can eneter and review all your bill in one place!");
+        } else {
+            System.out.println("null");
+            x++; /// controlling Recursion infinite loop by printing specific number of times it is changeable!!!
+            firstMessage(x);
+        }
+    }
 
-	         break;
+    public static void main(String[] args) { ///this line is important to Identify what are we going to use in our code for example Strings.
+        bill s = null; /// Mohamed wrote that line
+        /// To define a block of code
+        try { /// Mohamed wrote that line
+            s = new billing(); /// Mohamed wrote that line
+            System.out.println("\t\t---------------------"); /// Mohamed wrote that line
 
-	      case 2 :
-	         System.out.println("You selected the chiropractic department \n");
+            Scanner keyboard = new Scanner(System.in);  // Create a Scanner to read input///Omar wrote that line
+            String Name, Phone, Address, Email, medicalIssue;   ///To hold a name. Define Variables ///Omar wrote that line
+            int daysStayed; /// declaring thats an Integer ///Omar wrote that line
+            double doctorFee, roomCharge, medPrice, totalFee; /// declare that these variables are double ///Omar wrote that line
+            final double cleaningFee; /// to Identify the constant you need to use the keyword final "Vertex academy.com" ///Omar wrote that line
+            cleaningFee = 35; ///Omar wrote that line
+            WarningCookie.Warning(args); /// calling the method from a different class
+            Hospital patientObject = new Patient(); 
+     	   patientObject.display();
+            firstMessage(0); /// calling Recursion method in the main method///
 
-	         break;
-
-	      case 3 :
-	         System.out.println("You selected the optometry department\n");
-
-	         break;
-
-	      case 4 :
-	         System.out.println("You selected the orthopedic department\n");
-
-	         break;
-	//This line will print if the user does not input one of the 4 dr choices
-	      default :
-	         System.out.println("Invalid input\n");
-	      }
-	      
-	      
-	    
-	 // get medical issue as input
-	    System.out.println("Enter medical issue : "); ///Omar wrote that line
-	    medicalIssue = keyboard.nextLine(); ///Omar wrote that line
-	    
-	 // ask user to enter number of days patient stayed in room
-	    System.out.println("Enter number of days stayed : "); /// mohamed wrote that line
-	    daysStayed = keyboard.nextInt(); //get the number of days/// mohamed wrote that line
-	    // if patient stayed for less than 5 days, charge them 900 per day for room and 400 per day as doctor's fee /// mohamed wrote that line
-	    if(daysStayed<=5) /// mohamed wrote that line
-	    {
-	    roomCharge = 900 * daysStayed; /// Room charge multiply the days stayed /// mohamed wrote that line
-	    doctorFee = 400 * daysStayed; /// doctorFee multiply the days stayed /// mohamed wrote that line
-	    }
-	    // if patient stayed between 5 to 15 days, charge them 800 per day for room and 300 per day as doctor's fee /// mohamed wrote that line
-	    else if(daysStayed>5 && daysStayed<=15) /// mohamed wrote that line
-	    {
-	    roomCharge = 800 * daysStayed; /// mohamed wrote that line
-	    doctorFee = 300 * daysStayed; /// mohamed wrote that line
-	    }
-	    // if patient stayed for more than 15 days, charge them 600 per day for room and 200 per day as doctor's fee /// mohamed wrote that line
-	    else /// mohamed wrote that line
-	    {
-	    roomCharge = 600 * daysStayed; /// mohamed wrote that line
-	    doctorFee = 200 * daysStayed; /// mohamed wrote that line
-	    }
-	    // ask user to input price of medicines taken /// mohamed wrote that line
-	    System.out.println("Enter the price of medicines taken : "); /// mohamed wrote that line
-	    medPrice = keyboard.nextDouble(); /// mohamed wrote that line
-	    
-	    
-	    // calculate total fee by adding room charge, doctor's fee and medicine's charge /// mohamed wrote that line
-	    totalFee = roomCharge + doctorFee + medPrice + cleaningFee;  /// mohamed wrote that line
-	    
-	    String months[] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", 
-	    	       "Oct", "Nov", "Dec"};
-	    	    
-	    	    int year;
-	    	    // Gregorian calendar initialized with current date/time of where user is
-	    	    // Gregorian calendar is a solar dating system used globally (works for any country)
-	    	    
-	    	    
-	    	    GregorianCalendar gcalendar = new GregorianCalendar();
-	    	    
-	    	    // Display current time and date information for location of patient
-	    	    System.out.println("This is the information you enterd and the receipt :\n "); ///Omar wrote that line
-	    	    System.out.print("Date: ");
-	    	    System.out.print(months[gcalendar.get(Calendar.MONTH)]);
-	    	    System.out.print(" " + gcalendar.get(Calendar.DATE) + " ");
-	    	    System.out.println(year = gcalendar.get(Calendar.YEAR));
-	    	    System.out.print("Time: ");
-	    	    System.out.print(gcalendar.get(Calendar.HOUR) + ":");
-	    	    System.out.print(gcalendar.get(Calendar.MINUTE) + ":");
-	    	    System.out.println(gcalendar.get(Calendar.SECOND));
-	    	    
-
-	    
-	    
-	    System.out.println("First name : " + Name);  // Output user input ///Omar wrote that line
-	    System.out.println("Patient address : " + Address);  // Output user input ///Omar wrote that line
-	    System.out.println("Patient contact number : " + Phone); // Output user input ///Omar wrote that line
-	    System.out.println("Patient Email Address : " + Email); // Output user input ///Omar wrote that line
-	    System.out.println("medical issue Entered: "+ medicalIssue );// Output user input ///Omar wrote that line
-	    System.out.println("recipt: " + totalFee); // total Fee output ///Omar wrote that line
-	    
-	    
-	    keyboard.close(); // keyboard no longer in use suggested by the tool ///Omar wrote that line
-	    console.close();
-	    
-	    /// Omar main information came From DrGMC Github different chapters here you can find link to the proffessor's Github
-	    ///https://github.com/DrGMC/JAVA
-	     
-           
-	    
-		
-		
-		
-	}
+            Encapsulation E = new Encapsulation(); /// RECIVING NEW VALUE TO ENCAPSLATION STRING
+            E.setEmergency ("IF YOU ARE STILL RECIVING TREATMENT PLEASE CALL YOUR DOCTOR BEFORE YOU FILL THIS FORM OR CALL THE HOSPITAL HOTLINE!!\n");
+            /// GIVING INPUT TO THE ENCAPSULATED FUNCTION FROM A DIFFERENT CLASS
+            System.out.println(E.getEmergency()); //CALLING FUNCTION AND MAKE IT EASIER TO CALL METHODS RATHER THAN REPATED CODE
+            // print a welcome message
+            System.out.println("*Please Enter the following information carfully*\n"); ///Omar wrote that line
 
 
-	
+            System.out.printf("Enter %s%n", "First Name :"); /// this to show on the screen a space for user to input name ///Omar wrote that line
+            ///the %s%n is used to interpret as a string
+            Name = keyboard.nextLine();  // Read user input ///Omar wrote that line
+
+            System.out.println("Enter current address :"); /// this to show on the screen a space for user to input name ///Omar wrote that line
+            Address = keyboard.nextLine(); // Read user input ///Omar wrote that line
+
+            System.out.println("please enter phone Number : "); ///this to show on the screen a space for user to input phone number
+            Phone = keyboard.nextLine(); // Read user input ///Omar wrote that line
+
+            System.out.println("please enter your primary Email address :"); ///this to show on the screen a space for user to input Email Address
+            Email = keyboard.nextLine(); // read user input ///Omar wrote that line
+
+            int doctor;    // to hold day value /// Victoria wrote that line
+
+            // Create a Scanner object for keyboard input.
+            Scanner console = new Scanner(System.in);
+
+            // Get the doctor type.
+            System.out.print("Please enter the number corresponding with the doctor you need:\n "); /// Victoria wrote that line
+            System.out.print("1: Urologist\n 2: Chiropractic\n 3: optometrist\n 4: Orthopedic\n Enter here: "); /// Victoria wrote that line
+            doctor = console.nextInt(); /// Victoria wrote that line
+
+            // Print out the department for the bill
+            switch (doctor) { /// Victoria wrote that line
+                case 1:
+                    System.out.println("You selected the urology department"); /// Victoria wrote that line
+
+                    break;
+
+                case 2:
+                    System.out.println("You selected the chiropractic department"); /// Victoria wrote that line
+ 
+                    break;
+
+                case 3:
+                    System.out.println("You selected the optometry department"); /// Victoria wrote that line
+
+                    break;
+
+                case 4:
+                    System.out.println("You selected the orthopedic department"); /// Victoria wrote that line
+
+                    break;
+                //This line will print if the user does not input one of the 4 dr choices /// Victoria wrote that line
+                default:
+                    System.out.println("Invalid input"); /// Victoria wrote that line
+            }
+
+
+            // get medical issue as input
+            System.out.println("Enter medical issue : "); ///Omar wrote that line
+            medicalIssue = keyboard.nextLine(); ///Omar wrote that line
+
+            // ask user to enter number of days patient stayed in room
+            System.out.println("Enter number of days stayed : "); /// mohamed wrote that line
+            daysStayed = keyboard.nextInt(); //get the number of days/// mohamed wrote that line
+            // if patient stayed for less than 5 days, charge them 900 per day for room and 400 per day as doctor's fee /// mohamed wrote that line
+            if (daysStayed <= 5) /// mohamed wrote that line
+            {
+                roomCharge = 900 * daysStayed; /// Room charge multiply the days stayed /// mohamed wrote that line
+                doctorFee = 400 * daysStayed; /// doctorFee multiply the days stayed /// mohamed wrote that line
+            }
+            // if patient stayed between 5 to 15 days, charge them 800 per day for room and 300 per day as doctor's fee /// mohamed wrote that line
+            else if (daysStayed > 5 && daysStayed <= 15) /// mohamed wrote that line
+            {
+                roomCharge = 800 * daysStayed; /// mohamed wrote that line
+                doctorFee = 300 * daysStayed; /// mohamed wrote that line
+            }
+            // if patient stayed for more than 15 days, charge them 600 per day for room and 200 per day as doctor's fee /// mohamed wrote that line
+            else /// mohamed wrote that line
+            {
+                roomCharge = 600 * daysStayed; /// mohamed wrote that line
+                doctorFee = 200 * daysStayed; /// mohamed wrote that line
+            }
+            // ask user to input price of medicines taken /// mohamed wrote that line
+            System.out.println("Enter the price of medicines taken : "); /// mohamed wrote that line
+            medPrice = keyboard.nextDouble(); /// mohamed wrote that line
+
+
+            // calculate total fee by adding room charge, doctor's fee and medicine's charge /// mohamed wrote that line
+            totalFee = roomCharge + doctorFee + medPrice + cleaningFee;  /// mohamed wrote that line
+
+            String months[] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", /// Victoria wrote that line
+                    "Oct", "Nov", "Dec"};
+
+            int year; /// Victoria wrote that line
+            // Gregorian calendar initialized with current date/time of where user is
+            // Gregorian calendar is a solar dating system used globally (works for any country)
+
+
+            GregorianCalendar gcalendar = new GregorianCalendar(); /// Victoria wrote that line
+
+            System.out.println("\t\t---------------------"); /// Victoria wrote that line
+            // Display current time and date information for location of patient
+            System.out.println("This is the information you enterd and the receipt :\n "); ///Omar wrote that line 
+            System.out.print("Date: "); /// Victoria wrote that line
+            System.out.print(months[gcalendar.get(Calendar.MONTH)]); /// Victoria wrote that line
+            System.out.print(" " + gcalendar.get(Calendar.DATE) + " "); /// Victoria wrote that line
+            System.out.println(year = gcalendar.get(Calendar.YEAR)); /// Victoria wrote that line
+            System.out.print("Time: "); /// Victoria wrote that line
+            System.out.print(gcalendar.get(Calendar.HOUR) + ":"); /// Victoria wrote that line
+            System.out.print(gcalendar.get(Calendar.MINUTE) + ":"); /// Victoria wrote that line
+            System.out.println(gcalendar.get(Calendar.SECOND)); /// Victoria wrote that line
+
+
+            System.out.println("First name : " + Name);  // Output user input ///Omar wrote that line
+            System.out.println("Patient address : " + Address);  // Output user input ///Omar wrote that line
+            System.out.println("Patient contact number : " + Phone); // Output user input ///Omar wrote that line
+            System.out.println("Patient Email Address : " + Email); // Output user input ///Omar wrote that line
+            System.out.println("medical issue Entered: " + medicalIssue);// Output user input ///Omar wrote that line
+            System.out.println("recipt: " + totalFee); // total Fee output ///Omar wrote that line
+
+
+            keyboard.close(); // keyboard no longer in use suggested by the tool ///Omar wrote that line
+            console.close();
+
+            /// Omar main information came From DrGMC Github different chapters here you can find link to the proffessor's Github
+            ///https://github.com/DrGMC/JAVA
+
+          /// To define a block of code to be executed
+        } catch (Exception e) { /// Mohamed wrote that line
+            System.out.println(e); /// Mohamed wrote that line
+        }
+
+        /// Create billing overload
+        System.out.println("\t\t---------------------\n "); /// Mohamed wrote that line
+        s.hello(); /// Mohamed wrote that line
+        billing.overload(1); /// Mohamed wrote that line
+        billing.overload(2, 3); /// Mohamed wrote that line
+
+    }
+
+
 }
-
+/// Create abstract class bill
+abstract class bill {  /// Mohamed wrote that line
+    abstract void hello(); /// Mohamed wrote that line
+}
+/// Print out abstract
+class billing extends bill { /// Mohamed wrote that line
+    void hello() { /// Mohamed wrote that line
+        System.out.println("Project Group Members: "); /// Mohamed wrote that line
+    }
+    /// Overload output
+    static void overload(int a) { /// Mohamed wrote that line
+        System.out.println("Omar: " + a); /// Mohamed wrote that line
+    }
+    /// Overload output
+    static void overload(int a, int b) { /// Mohamed wrote that line
+        System.out.println("Victoria: " + a); /// Mohamed wrote that line
+        System.out.println("Mohamed:" + b); /// Mohamed wrote that line
+    }
+    /// Constructor for the name of the hospital
+    billing() { /// Mohamed wrote that line
+        System.out.println("Campbell Hospital"); /// Mohamed wrote that line
+    }
+}
